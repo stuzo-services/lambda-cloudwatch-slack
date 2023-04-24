@@ -1,0 +1,24 @@
+name: Manual deploy Lambda "Alert to slack"
+on:
+  workflow_dispatch:
+    inputs:
+      service_build:
+        description: 'Deploy Lambda'
+        required: true
+        default: 'Deploy Lambda'
+jobs:
+  deploy:
+    name: Deploy lambda
+    runs-on: ubuntu-latest
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Configure AWS credentials from Test account
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        role-to-assume: arn:aws:iam::288345918443:role/GitHubDeployLambdaRole
+        aws-region: us-east-1
