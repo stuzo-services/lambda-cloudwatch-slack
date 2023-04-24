@@ -22,3 +22,7 @@ jobs:
       with:
         role-to-assume: arn:aws:iam::288345918443:role/GitHubDeployLambdaRole
         aws-region: us-east-1
+    - name: run list lambdas
+      run: |
+        aws lambda get-function-configuration --fuction-name lambda-to-slack
+     
