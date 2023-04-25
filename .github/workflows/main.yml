@@ -6,6 +6,10 @@ on:
         description: 'Deploy Lambda'
         required: true
         default: 'Deploy Lambda'
+        
+env:
+  AWS_ROLE: ${{ secrets.AWS_LAMBDA_ROLE }}
+  UNENCRYPTED_HOOK_URL: ${{ secrets.UNENCRYPTED_HOOK_URL }}
 jobs:
   deploy:
     name: Deploy lambda
@@ -20,7 +24,7 @@ jobs:
     - name: Configure AWS credentials from Prod account
       uses: aws-actions/configure-aws-credentials@v2
       with:
-        role-to-assume: arn:aws:iam::288345918443:role/GitHubDeployLambdaRole
+        role-to-assume: ${{ secrets.AWS_ROLE }}
         aws-region: us-east-1
     - name: run list lambdas
       run: |
