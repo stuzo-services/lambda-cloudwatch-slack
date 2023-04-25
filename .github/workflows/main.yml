@@ -30,5 +30,6 @@ jobs:
     - name: Deploying lambda
       run: |
         npm install
+        aws lambda get-function --function-name ${{ vars.AWS_FUNCTION_NAME }} --query 'Configuration.[State, LastUpdateStatus]'
         npm run deploy
      
