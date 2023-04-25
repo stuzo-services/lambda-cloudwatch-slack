@@ -10,6 +10,7 @@ on:
 env:
   AWS_ROLE: ${{ secrets.AWS_LAMBDA_ROLE }}
   UNENCRYPTED_HOOK_URL: ${{ secrets.UNENCRYPTED_HOOK_URL }}
+  AWS_FUNCTION_NAME: ${{ vars.AWS_FUNCTION_NAME }}
 jobs:
   deploy:
     name: Deploy lambda
