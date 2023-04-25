@@ -25,6 +25,5 @@ jobs:
     - name: run list lambdas
       run: |
         npm install
-        echo ${{ secrets.AWS_ROLE }}
         npm run deploy
      
