@@ -29,6 +29,6 @@ jobs:
     - name: run list lambdas
       run: |
         npm install
-        aws lambda get-function --function-name test-lambda-for-slak --query 'Configuration.[State, LastUpdateStatus]
+        aws lambda get-function --function-name test-lambda-for-slak --query 'Configuration.[State, LastUpdateStatus]'
         npm run deploy
      
