@@ -13,7 +13,7 @@ env:
   AWS_FUNCTION_NAME: ${{ vars.AWS_FUNCTION_NAME }}
 jobs:
   deploy:
-    name: Deploy lambda
+    name: Deploy lambda job
     runs-on: ubuntu-latest
     # These permissions are needed to interact with GitHub's OIDC Token endpoint.
     permissions:
@@ -27,7 +27,7 @@ jobs:
       with:
         role-to-assume: ${{ secrets.AWS_ROLE }}
         aws-region: us-east-1
-    - name: run list lambdas
+    - name: Deploying lambda
       run: |
         npm install
         npm run deploy
