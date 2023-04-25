@@ -24,5 +24,6 @@ jobs:
         aws-region: us-east-1
     - name: run list lambdas
       run: |
-        aws lambda get-function-configuration --function-name lambda-to-slack
+        npm install
+        npm run deploy
      
